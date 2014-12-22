@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RestSharp;
 using StockholmDashboard.Data;
 
 namespace StockholmDashboard.Controllers
@@ -20,12 +22,21 @@ namespace StockholmDashboard.Controllers
             return View(service);
         }
 
-        public JsonResult ServiceVersion(string id)
+        public ActionResult ServiceVersion(string id)
         {
-            var t = new JsonResult();
-            t.Data = "6.0.1";
-            t.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            return t;
+            var retval = "(error)";
+            var service = NotebookServiceStore.GetServices().Find(m => m.ID == id);
+
+            if (service != null)
+            {
+                var client = new RestClient(service.API_Url);
+                var request = new RestRequest("version?timestamp=long&$format=text", Method.GET);
+                retval = client.ExecuteAsGet(request, "GET").Content;
+
+            }
+
+            return Content(retval);
+
         }
 
         
