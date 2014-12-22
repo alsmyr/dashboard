@@ -26,6 +26,19 @@
                         <a href="@Html.ViewData.Model.UI_Url">@Html.ViewData.Model.UI_Url</a>
                     </div>
                 </div>
+                @if (ViewData.Model.ListLogURL != null)
+                {
+                    <div class="row">
+                        <div class="col-md-3">
+                            @Html.LabelFor(m => m.ListLogURL)
+                        </div>
+                        <div class="col-md-9">
+                            <a target="new" href="@Html.ViewData.Model.ListLogURL">open</a>
+                        </div>
+
+                    </div>
+                }
+                
                 <div class="row">
                     <div class="col-md-3">
                         @Html.LabelFor(m => m.Version)

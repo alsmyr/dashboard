@@ -20,6 +20,7 @@ namespace StockholmDashboard.Data
                 Name = "Trunk SQL",
                 Description = "",
                 API_Url = new Uri("https://trunk-sql-12.accelrys.net/api/v1"),
+                ListLogURL = new Uri("https://trunk-sql-12.accelrys.net/CheckErrorWeb.pl"),
                 UI_Url = new Uri("https://trunk-sql-12.accelrys.net/notebook"),
                 Username = "superuser",
                 Password = "superuser"
@@ -32,6 +33,7 @@ namespace StockholmDashboard.Data
                 Description = "",
                 API_Url = new Uri("https://trunk-ora-12.accelrys.net/api/v1"),
                 UI_Url = new Uri("https://trunk-ora-12.accelrys.net/notebook"),
+                ListLogURL = new Uri("https://trunk-ora-12.accelrys.net/CheckErrorWeb.pl"),
                 Username = "superuser",
                 Password = "superuser"
             };
@@ -42,6 +44,7 @@ namespace StockholmDashboard.Data
                 Name = "Trunk Cloud",
                 Description = "",
                 API_Url = new Uri("http://trunk-cloud.accelrys.net/api/v1"),
+                ListLogURL = new Uri("http://trunk-cloud.accelrys.net/CheckErrorWeb.pl"),
                 UI_Url = new Uri("http://trunk-cloud.accelrys.net/notebook"),
                 Username = "superuser",
                 Password = "superuser"

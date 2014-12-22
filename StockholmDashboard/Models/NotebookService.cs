@@ -23,6 +23,9 @@ namespace StockholmDashboard.Models
         [DisplayName("API")]
         public Uri API_Url { get; set; }
 
+        [DisplayName("Log Errors")]
+        public Uri ListLogURL { get; set; }
+
         [DisplayName("Version")]
         public string Version { get; set; }
 
