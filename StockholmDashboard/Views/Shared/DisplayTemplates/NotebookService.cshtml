@@ -1,5 +1,44 @@
 ﻿@model StockholmDashboard.Models.NotebookService
-<div class="col-md-4">
-    @Html.DisplayFor(m => m.Name)
-    @Html.DisplayFor(m => m.Description)
+<div class="col-md-5">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Html.DisplayFor(m => m.Name)</h3>
+        </div>
+        <div class="panel-body">
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.DisplayFor(m => m.Description)
+                    </div>
+
+                </div>
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.UI_Url)
+                </div>
+                <div class="col-md-8">
+                    <a href="@Html.ViewData.Model.UI_Url">@Html.ViewData.Model.UI_Url</a>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Version)
+                    </div>
+                    <div class="col-md-8">
+                        @Html.DisplayFor(m => m.Version)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Environment)
+                    </div>
+                    <div class="col-md-8">
+                        @Html.DisplayFor(m => m.Environment)
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    
+    
 </div>

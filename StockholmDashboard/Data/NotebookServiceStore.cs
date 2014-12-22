@@ -17,25 +17,29 @@ namespace StockholmDashboard.Data
             var n1 = new NotebookService
             {
                 Name = "Trunk SQL",
-                Description = "On-Prem with MS SQL Server (> 1M experiments)",
-                API_Url = "https://trunk-sql-12.accelrys.net/api/v1",
-                UI_Url = "https://trunk-sql-12.accelrys.net/notebook"
+                Description = "",
+                API_Url = new Uri("https://trunk-sql-12.accelrys.net/api/v1"),
+                UI_Url = new Uri("https://trunk-sql-12.accelrys.net/notebook"),
+                Version = "6.0",
+                Environment = ""
             };
 
             var n2 = new NotebookService
             {
                 Name = "Trunk ORA",
-                Description = "On-Prem with Oracle (> 1M experiments)",
-                API_Url = "https://trunk-ora-12.accelrys.net/api/v1",
-                UI_Url = "https://trunk-ora-12.accelrys.net/notebook"
+                Description = "",
+                API_Url = new Uri("https://trunk-ora-12.accelrys.net/api/v1"),
+                UI_Url = new Uri("https://trunk-ora-12.accelrys.net/notebook"),
+                Version = "6.0"
             };
 
             var n3 = new NotebookService
             {
                 Name = "Trunk Cloud",
-                Description = "Cloud like environment",
-                API_Url = "http://trunk-cloud.accelrys.net/api/v1",
-                UI_Url = "http://trunk-cloud.accelrys.net/notebook"
+                Description = "",
+                API_Url = new Uri("http://trunk-cloud.accelrys.net/api/v1"),
+                UI_Url = new Uri("http://trunk-cloud.accelrys.net/notebook"),
+                Version = "6.0"
             };
 
             _services.Add(n1);
