@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using RestSharp;
 using StockholmDashboard.Data;
+using StockholmDashboard.Models;
 
 namespace StockholmDashboard.Controllers
 {
@@ -36,6 +37,27 @@ namespace StockholmDashboard.Controllers
             }
 
             return Content(retval);
+
+        }
+
+        public ActionResult ServiceInfo(string id)
+        {
+            SystemInfo s = null;
+            var service = NotebookServiceStore.GetServices().Find(m => m.ID == id);
+
+            if (service != null)
+            {
+                var client = new RestClient(service.API_Url);
+                client.Authenticator = new HttpBasicAuthenticator(service.Username,service.Password);
+                var request = new RestRequest("systeminfo", Method.GET);
+
+                
+                var response = client.ExecuteAsGet<SystemInfo>(request, "GET");
+                s = response.Data;
+
+            }
+
+            return PartialView("ServiceInfo",s);
 
         }
 

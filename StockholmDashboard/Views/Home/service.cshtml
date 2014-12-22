@@ -12,6 +12,48 @@
                 <h3 class="panel-title">@Html.DisplayFor(m => m.Name)</h3>
             </div>
             <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.DisplayFor(m => m.Description)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.UI_Url)
+                    </div>
+                    <div class="col-md-9">
+                        <a href="@Html.ViewData.Model.UI_Url">@Html.ViewData.Model.UI_Url</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.Version)
+                    </div>
+                    <div id="@(Model.ID + "_version")" class="col-md-9">
+                        <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                        <script language="javascript">
+                            $(document).ready(function() {
+                                $("#@(Model.ID + "_version")").load("@this.Url.Action("ServiceVersion", "Home", new {id = Model.ID}, this.Request.Url.Scheme)");
+                            });
+                        </script>
+                    </div>
+
+                </div>
+                <div id="@(Model.ID + "_info")" class="">
+                    <div class="col-md-3">
+                        Loading Info...
+                    </div>
+                    <div class="col-md-9">
+                        <span class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+                        <script language="javascript">
+                            $(document).ready(function () {
+                                $("#@(Model.ID + "_info")").load("@this.Url.Action("ServiceInfo", "Home", new {id = Model.ID}, this.Request.Url.Scheme)");
+                            });
+                        </script>
+                    </div>
+
+                </div>
             </div>
             </div>
         </div>

@@ -37,5 +37,11 @@ namespace StockholmDashboard.Models
 
         [DisplayName("Errors")]
         public string LogErrorsUrl { get; set; }
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+
     }
 }

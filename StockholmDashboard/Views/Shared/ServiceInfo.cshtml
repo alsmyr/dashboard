@@ -1,0 +1,50 @@
+﻿@model StockholmDashboard.Models.SystemInfo
+           
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.OSVersion)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.OSVersion)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.DBVersion)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.DBVersion)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.DBCartridge)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.DBCartridge)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.Uptime)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.Uptime)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.ConnectedClients)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.ConnectedClients)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.AEPEndpoint)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(m => m.AEPEndpoint)
+    </div>
+</div>
