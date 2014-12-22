@@ -8,6 +8,9 @@ namespace StockholmDashboard.Models
 {
     public class NotebookService
     {
+        [DisplayName("ID")]
+        public string ID { get; set; }
+
         [DisplayName("Name")]
         public string Name { get; set; }
 

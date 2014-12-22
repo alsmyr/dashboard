@@ -16,6 +16,7 @@ namespace StockholmDashboard.Data
 
             var n1 = new NotebookService
             {
+                ID = "trunksql",
                 Name = "Trunk SQL",
                 Description = "",
                 API_Url = new Uri("https://trunk-sql-12.accelrys.net/api/v1"),
@@ -26,6 +27,7 @@ namespace StockholmDashboard.Data
 
             var n2 = new NotebookService
             {
+                ID = "trunkora",
                 Name = "Trunk ORA",
                 Description = "",
                 API_Url = new Uri("https://trunk-ora-12.accelrys.net/api/v1"),
@@ -35,6 +37,7 @@ namespace StockholmDashboard.Data
 
             var n3 = new NotebookService
             {
+                ID = "trunkcloud",
                 Name = "Trunk Cloud",
                 Description = "",
                 API_Url = new Uri("http://trunk-cloud.accelrys.net/api/v1"),

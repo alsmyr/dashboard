@@ -7,3 +7,4 @@
 /// <reference path="npm.js" />
 /// <reference path="respond.js" />
 /// <reference path="respond.matchmedia.addlistener.js" />
+/// <reference path="jquery.unobtrusive-ajax.min.js" />
