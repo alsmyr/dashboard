@@ -56,6 +56,31 @@
             </div>
 
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Label("Tests")
+            </div>
+            <div class="col-md-9">
+                @if (ViewData.Model.TestSummaries.Count > 0)
+                {
+                    if (ViewData.Model.TestSummaries[0].NotPassed > 0)
+                    {
+                        @Html.Raw(string.Format("{0} failed of {1} on {2}", ViewData.Model.TestSummaries[0].NotPassed, ViewData.Model.TestSummaries[0].Passed + ViewData.Model.TestSummaries[0].NotPassed, ViewData.Model.TestSummaries[0].Executed));
+
+                    }
+                    else
+                    {
+                        @Html.Raw(string.Format("All {0} passed on {1}", ViewData.Model.TestSummaries[0].Passed + ViewData.Model.TestSummaries[0].NotPassed, ViewData.Model.TestSummaries[0].Executed));
+
+                    }
+                }
+                else
+                {
+                    @:n/a
+         }
+            </div>
+
+        </div>
 
 
     </div>
