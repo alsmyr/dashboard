@@ -48,8 +48,10 @@ namespace StockholmDashboard.Models
         public int TicketRequestID_UI { get; set; }
         public int TicketRequestID_API { get; set; }
 
-        public List<TestSummary> TestSummaries { get; set; }
+        public List<TestSummary> UITestSummaries { get; set; }
+        public List<TestSummary> APITestSummaries { get; set; }
 
+      
 
     }
 }

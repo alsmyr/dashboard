@@ -59,8 +59,8 @@ namespace StockholmDashboard.Data
                     CacheItemPriority.Default, null);
             }
 
-            s.TestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id);
-            s.TestSummaries.AddRange(_testSummaries.FindAll(m => m.TicketRequestID == id2));
+            s.APITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id);
+            s.UITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id2);
 
         }
     }
