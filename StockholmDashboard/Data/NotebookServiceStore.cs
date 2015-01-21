@@ -23,8 +23,13 @@ namespace StockholmDashboard.Data
                 ListLogURL = new Uri("https://trunk-sql-12.accelrys.net/CheckErrorWeb.pl"),
                 UI_Url = new Uri("https://trunk-sql-12.accelrys.net/notebook"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1089,
+                TicketRequestID_API = 1094
+
             };
+
+            
 
             var n2 = new NotebookService
             {
@@ -35,7 +40,9 @@ namespace StockholmDashboard.Data
                 UI_Url = new Uri("https://trunk-ora-12.accelrys.net/notebook"),
                 ListLogURL = new Uri("https://trunk-ora-12.accelrys.net/CheckErrorWeb.pl"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1089,
+                TicketRequestID_API = 1093
             };
 
             var n3 = new NotebookService
@@ -47,7 +54,9 @@ namespace StockholmDashboard.Data
                 ListLogURL = new Uri("http://trunk-cloud.accelrys.net/CheckErrorWeb.pl"),
                 UI_Url = new Uri("http://trunk-cloud.accelrys.net/notebook"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1091,
+                TicketRequestID_API = 1092
             };
 
             var n4 = new NotebookService
@@ -83,11 +92,22 @@ namespace StockholmDashboard.Data
                 Password = "superuser"
             };
 
+            TestDataStore.FillTestSummaries(ref n1);
             _services.Add(n1);
+
+            TestDataStore.FillTestSummaries(ref n2);
             _services.Add(n2);
+
+            TestDataStore.FillTestSummaries(ref n3);
             _services.Add(n3);
+
+            TestDataStore.FillTestSummaries(ref n4);
             _services.Add(n4);
+
+            TestDataStore.FillTestSummaries(ref n5);
             _services.Add(n5);
+
+            TestDataStore.FillTestSummaries(ref n6);
             _services.Add(n6);
 
         }

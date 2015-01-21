@@ -45,6 +45,11 @@ namespace StockholmDashboard.Models
 
         public string Password { get; set; }
 
+        public int TicketRequestID_UI { get; set; }
+        public int TicketRequestID_API { get; set; }
+
+        public List<TestSummary> TestSummaries { get; set; }
+
 
     }
 }

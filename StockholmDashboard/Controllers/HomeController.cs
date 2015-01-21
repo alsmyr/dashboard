@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RestSharp;
@@ -32,7 +33,15 @@ namespace StockholmDashboard.Controllers
             {
                 var client = new RestClient(service.API_Url);
                 var request = new RestRequest("version?timestamp=long&$format=text", Method.GET);
-                retval = client.ExecuteAsGet(request, "GET").Content;
+                IRestResponse r = client.ExecuteAsGet(request, "GET");
+                if (r.StatusCode == HttpStatusCode.OK)
+                {
+                    retval = r.Content;
+                }
+                else
+                {
+                    retval = r.StatusDescription;
+                }
 
             }
 
@@ -60,6 +69,8 @@ namespace StockholmDashboard.Controllers
             return PartialView("ServiceInfo",s);
 
         }
+
+       
 
         
     }
