@@ -90,7 +90,7 @@
                     {
                         if (ViewData.Model.APITestSummaries[0].NotPassed > 0)
                         {
-                            @Html.Raw(string.Format("{0} failed of {1} on {2}", ViewData.Model.APITestSummaries[0].NotPassed, ViewData.Model.UITestSummaries[0].Passed + ViewData.Model.APITestSummaries[0].NotPassed, ViewData.Model.APITestSummaries[0].Executed));
+                            @Html.Raw(string.Format("{0} failed of {1} on {2}", ViewData.Model.APITestSummaries[0].NotPassed, ViewData.Model.APITestSummaries[0].Passed + ViewData.Model.APITestSummaries[0].NotPassed, ViewData.Model.APITestSummaries[0].Executed));
 
                         }
                         else
