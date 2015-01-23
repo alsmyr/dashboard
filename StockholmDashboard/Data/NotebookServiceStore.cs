@@ -50,13 +50,13 @@ namespace StockholmDashboard.Data
                 ID = "trunkcloud",
                 Name = "Trunk Cloud",
                 Description = "",
-                API_Url = new Uri("http://trunk-cloud.accelrys.net/api/v1"),
-                ListLogURL = new Uri("http://trunk-cloud.accelrys.net/CheckErrorWeb.pl"),
-                UI_Url = new Uri("http://trunk-cloud.accelrys.net/notebook"),
+                API_Url = new Uri("https://trunk-cloud-1.accelrys.net/api/v1"),
+                ListLogURL = new Uri("https://trunk-cloud-1.accelrys.net/CheckErrorWeb.pl"),
+                UI_Url = new Uri("https://trunk-cloud-1.accelrys.net/notebook"),
                 Username = "superuser",
                 Password = "superuser",
                 TicketRequestID_UI = 1091,
-                TicketRequestID_API = 1092
+                TicketRequestID_API = 1095
             };
 
             var n4 = new NotebookService
