@@ -41,14 +41,14 @@ namespace StockholmDashboard.Data
 
                 var command = _conn.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "select t.ticketid, startdate, tests, passed,t.ticketrequestid from [TestAutomation].[dbo].[TicketStatusView] tsv, [TestAutomation].[dbo].[Ticket] t where t.ticketid = tsv.ticketid and t.TicketRequestID in (1089,1090,1091,1092,1093,1094,1095) order by ticketid desc";
+                command.CommandText = "select t.ticketid, startdate, tests, passed,t.ticketrequestid,ignored from [TestAutomation].[dbo].[TicketStatusView] tsv, [TestAutomation].[dbo].[Ticket] t where t.ticketid = tsv.ticketid and t.TicketRequestID in (1089,1090,1091,1093,1094,1095) order by ticketid desc";
                 var reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     var t = new TestSummary {Executed = reader.GetDateTime(1), Passed = reader.GetInt32(3)};
 
-                    t.NotPassed = reader.GetInt32(2) - t.Passed;
+                    t.NotPassed = reader.GetInt32(2) - t.Passed - reader.GetInt32(5);
                     t.TicketRequestID = (int)reader.GetFieldValue<long>(4);
 
                     _testSummaries.Add(t);

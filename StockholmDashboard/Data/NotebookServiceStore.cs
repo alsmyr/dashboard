@@ -24,7 +24,7 @@ namespace StockholmDashboard.Data
                 UI_Url = new Uri("https://trunk-sql-12.accelrys.net/notebook"),
                 Username = "superuser",
                 Password = "superuser",
-                TicketRequestID_UI = 1089,
+                TicketRequestID_UI = 1090,
                 TicketRequestID_API = 1094
 
             };

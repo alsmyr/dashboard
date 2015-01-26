@@ -131,4 +131,30 @@
 
         </div>
 
+
+<div class="row">
+    <div class="panel
+         @if (ViewData.Model.UITestSummaries.Count + ViewData.Model.APITestSummaries.Count > 0) { if ((ViewData.Model.UITestSummaries.Count > 0 ? ViewData.Model.UITestSummaries[0].NotPassed : 0) + (ViewData.Model.APITestSummaries.Count > 0 ? ViewData.Model.APITestSummaries[0].NotPassed : 0) > 0) {  @: panel-danger
+                              } else { @: panel-success
+                              } } else { @: panel-primary
+                               }
+         ">
+            <div class=" panel-heading">
+        <h3 class="panel-title">@Html.DisplayFor(m => m.Name) test history</h3>
+    </div>
+
+
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                Test history here!
+            </div>
+
+        </div>
+
+        </div>
+    </div>
 </div>
+
+        
