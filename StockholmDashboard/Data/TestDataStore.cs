@@ -41,7 +41,7 @@ namespace StockholmDashboard.Data
 
                 var command = _conn.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "select t.ticketid, startdate, tests, passed,t.ticketrequestid,ignored from [TestAutomation].[dbo].[TicketStatusView] tsv, [TestAutomation].[dbo].[Ticket] t where t.ticketid = tsv.ticketid and t.TicketRequestID in (1089,1090,1091,1093,1094,1095) order by ticketid desc";
+                command.CommandText = "select t.ticketid, startdate, tests, passed,t.ticketrequestid,ignored from [TestAutomation].[dbo].[TicketStatusView] tsv, [TestAutomation].[dbo].[Ticket] t where t.ticketid = tsv.ticketid and t.TicketRequestID in (1089,1090,1091,1093,1094,1095,1472,1473,1474,1475,1476,1477) order by ticketid desc";
                 var reader = command.ExecuteReader();
 
                 while (reader.Read())

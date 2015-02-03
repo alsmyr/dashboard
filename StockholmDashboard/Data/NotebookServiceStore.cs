@@ -67,7 +67,9 @@ namespace StockholmDashboard.Data
                 API_Url = new Uri("http://reg-sql.ilabber.com/api/v1"),
                 UI_Url = new Uri("http://reg-sql.ilabber.com/notebook"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1476,
+                TicketRequestID_API = 1473
             };
 
             var n5 = new NotebookService
@@ -78,7 +80,9 @@ namespace StockholmDashboard.Data
                 API_Url = new Uri("http://reg-ora-ilabber.accelrys.net/api/v1"),
                 UI_Url = new Uri("http://reg-ora-ilabber.accelrys.net/notebook"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1475,
+                TicketRequestID_API = 1472
             };
 
             var n6 = new NotebookService
@@ -89,7 +93,9 @@ namespace StockholmDashboard.Data
                 API_Url = new Uri("https://eln.reg-cloud-prod.ilabber.com/api/v1"),
                 UI_Url = new Uri("https://eln.reg-cloud-prod.ilabber.com/notebook"),
                 Username = "superuser",
-                Password = "superuser"
+                Password = "superuser",
+                TicketRequestID_UI = 1477,
+                TicketRequestID_API = 1474
             };
 
             TestDataStore.FillTestSummaries(ref n1);
