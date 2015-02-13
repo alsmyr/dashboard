@@ -4,17 +4,21 @@
         <tr>
             @foreach (var ts in Model.Take(100).OrderBy(m => m.Executed))
             {
+                
                 <td style="padding-right: 1px">
-                    <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(Model.Max(m => m.Passed + m.NotPassed) - ts.NotPassed - ts.Passed)px;width: 3px">
+                    <a href="@ts.DetailsUri">
+                        <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(Model.Max(m => m.Passed + m.NotPassed) - ts.NotPassed - ts.Passed)px;width: 3px">
 
-                    </div>
-                    <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(ts.NotPassed)px;width: 10px;background-color: red">
+                        </div>
+                        <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(ts.NotPassed)px;width: 10px;background-color: red">
 
-                    </div>
-                    <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(ts.Passed)px;width: 10px;background-color: green">
+                        </div>
+                        <div title="@(ts.Passed) of @(ts.Passed + ts.NotPassed) passed on @(ts.Executed.ToString())" style="height:@(ts.Passed)px;width: 10px;background-color: green">
 
-                    </div>
+                        </div>
+                    </a>
                 </td>
+                
             }
         </tr>
     </table>

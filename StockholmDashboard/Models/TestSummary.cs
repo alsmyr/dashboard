@@ -18,7 +18,7 @@ namespace StockholmDashboard.Models
         public int NotPassed { get; set; }
 
         [DisplayName("Details")]
-        public Uri DetailsUri { get; set; }
+        public string DetailsUri { get; set; }
 
         
         public int TicketRequestID { get; set; }

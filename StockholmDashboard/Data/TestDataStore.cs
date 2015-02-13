@@ -50,6 +50,7 @@ namespace StockholmDashboard.Data
 
                     t.NotPassed = reader.GetInt32(2) - t.Passed - reader.GetInt32(5);
                     t.TicketRequestID = (int)reader.GetFieldValue<long>(4);
+                    t.DetailsUri = string.Format("http://auto-test-data/report/Report.aspx?TicketIDs={0}", (int)reader.GetFieldValue<long>(0));
 
                     _testSummaries.Add(t);
 
