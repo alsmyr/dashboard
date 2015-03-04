@@ -20,6 +20,8 @@ namespace StockholmDashboard.Models
         [DisplayName("Details")]
         public string DetailsUri { get; set; }
 
+        [DisplayName("Build")]
+        public string Build { get; set; }
         
         public int TicketRequestID { get; set; }
     }
