@@ -24,5 +24,7 @@ namespace StockholmDashboard.Models
         public string Build { get; set; }
         
         public int TicketRequestID { get; set; }
+
+        public int TicketID { get; set; }
     }
 }

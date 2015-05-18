@@ -13,8 +13,16 @@ namespace StockholmDashboard.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string refresh)
         {
+            if (!string.IsNullOrWhiteSpace(refresh))
+            {
+                //Clean the cache of test data
+               NotebookServiceStore.Refresh(refresh);
+                return Redirect("/");
+
+            }
+
             return View(NotebookServiceStore.GetServices());
         }
 

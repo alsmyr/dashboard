@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Caching;
 using StockholmDashboard.Models;
@@ -16,6 +17,8 @@ namespace StockholmDashboard.Data
     {
         private static SqlConnection _conn { get; set; }
         private static Cache Cache { get; set; }
+        private static HashSet<int> SlackTickets { get; set; }
+        public const string CacheKey = "_testSummaries";
 
         static TestDataStore()
         {
@@ -25,13 +28,14 @@ namespace StockholmDashboard.Data
 
             Cache = new Cache();
             
+            SlackTickets = new HashSet<int>();
 
         }
 
         public static void FillTestSummaries(ref NotebookService s)
         {
             List<TestSummary> _testSummaries = null;
-            _testSummaries = HttpRuntime.Cache.Get("_testSummaries") as List<TestSummary>;
+            _testSummaries = HttpRuntime.Cache.Get(CacheKey) as List<TestSummary>;
             int id = s.TicketRequestID_API;
             int id2 = s.TicketRequestID_UI;
 
@@ -48,17 +52,53 @@ namespace StockholmDashboard.Data
                 {
                     var t = new TestSummary {Executed = reader.GetDateTime(1), Passed = reader.GetInt32(3)};
 
+                    t.TicketID = (int) reader.GetFieldValue<long>(0);
                     t.NotPassed = reader.GetInt32(2) - t.Passed - reader.GetInt32(5);
                     t.TicketRequestID = (int)reader.GetFieldValue<long>(4);
-                    t.DetailsUri = string.Format("http://auto-test-data/report/Report.aspx?TicketIDs={0}&Details=true&SortExpr=Failcount desc", (int)reader.GetFieldValue<long>(0));
+                    t.DetailsUri = string.Format("http://auto-test-data/report/Report.aspx?TicketIDs={0}&Details=true&SortExpr=Failcount desc", t.TicketID);
                     t.Build = !reader.IsDBNull(6) ? reader.GetString(6) : "(unknown)";
                     _testSummaries.Add(t);
 
                 }
 
-                HttpRuntime.Cache.Add("_testSummaries", _testSummaries, null, DateTime.Now.AddHours(4), Cache.NoSlidingExpiration,
+                reader.Close();
+               
+                HttpRuntime.Cache.Add(CacheKey, _testSummaries, null, DateTime.Now.AddHours(4), Cache.NoSlidingExpiration,
                     CacheItemPriority.Default, null);
+
+                
             }
+
+            //if ((DateTime.UtcNow - t.Executed).TotalHours < 24 && t.TicketRequestID == id && !SlackTickets.Contains(t.TicketID))
+            //{
+            //    // Post to Slack
+            //    if (t.NotPassed > 0)
+            //    {
+            //        SlackStore.PostMessage(s.Name + " API Tests failed! <" + t.DetailsUri + "|Click here> for details!", null, null, ":warning:");
+            //    }
+            //    else
+            //    {
+            //        SlackStore.PostMessage(s.Name + " API Tests OK! <" + t.DetailsUri + "|Click here> for details!", null, null, ":white_check_mark:");
+            //    }
+
+            //    SlackTickets.Add(t.TicketID);
+
+            //}
+
+            //if ((DateTime.UtcNow - t.Executed).TotalHours < 24 && t.TicketRequestID == id2 && !SlackTickets.Contains(t.TicketID))
+            //{
+            //    // Post to Slack
+            //    if (t.NotPassed > 0)
+            //    {
+            //        SlackStore.PostMessage(s.Name + " UI Tests failed! <" + t.DetailsUri + "|Click here> for details!", null, null, ":warning:");
+            //    }
+            //    else
+            //    {
+            //        SlackStore.PostMessage(s.Name + " UI Tests OK! <" + t.DetailsUri + "|Click here> for details!", null, null, ":white_check_mark:");
+            //    }
+
+            //    SlackTickets.Add(t.TicketID);
+            //}
 
             s.APITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id);
             s.UITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id2);

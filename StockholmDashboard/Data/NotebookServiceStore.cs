@@ -118,6 +118,14 @@ namespace StockholmDashboard.Data
 
         }
 
+        public static void Refresh(string id)
+        {
+            HttpRuntime.Cache.Remove(TestDataStore.CacheKey);
+
+            var service = _services.First(s => s.ID == id);
+            TestDataStore.FillTestSummaries(ref service);
+        }
+
         public static List<NotebookService> GetServices()
         {
             return _services;
