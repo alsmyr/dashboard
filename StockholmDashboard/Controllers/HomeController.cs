@@ -19,7 +19,7 @@ namespace StockholmDashboard.Controllers
             {
                 //Clean the cache of test data
                NotebookServiceStore.Refresh(refresh);
-                return Redirect("/");
+                return Redirect(Request.Url.GetLeftPart(UriPartial.Path));
 
             }
 
