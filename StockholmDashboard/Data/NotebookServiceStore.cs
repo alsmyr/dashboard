@@ -17,7 +17,7 @@ namespace StockholmDashboard.Data
             var n1 = new NotebookService
             {
                 ID = "trunksql",
-                Name = "Trunk SQL",
+                Name = "Notebook Trunk SQL",
                 Description = "",
                 API_Url = new Uri("https://trunk-sql-12.accelrys.net/api/v1"),
                 ListLogURL = new Uri("https://trunk-sql-12.accelrys.net/CheckErrorWeb.pl"),
@@ -34,7 +34,7 @@ namespace StockholmDashboard.Data
             var n2 = new NotebookService
             {
                 ID = "trunkora",
-                Name = "Trunk ORA",
+                Name = "Notebook Trunk ORA",
                 Description = "",
                 API_Url = new Uri("https://trunk-ora-12.accelrys.net/api/v1"),
                 UI_Url = new Uri("https://trunk-ora-12.accelrys.net/notebook"),
@@ -48,7 +48,7 @@ namespace StockholmDashboard.Data
             var n3 = new NotebookService
             {
                 ID = "trunkcloud",
-                Name = "Trunk Cloud",
+                Name = "Notebook Trunk Cloud",
                 Description = "",
                 API_Url = new Uri("https://trunk-cloud-1.accelrys.net/api/v1"),
                 ListLogURL = new Uri("https://trunk-cloud-1.accelrys.net/CheckErrorWeb.pl"),
@@ -62,7 +62,7 @@ namespace StockholmDashboard.Data
             var n4 = new NotebookService
             {
                 ID = "regsql",
-                Name = "Reg SQL",
+                Name = "Notebook Reg SQL",
                 Description = "",
                 API_Url = new Uri("http://reg-sql.ilabber.com/api/v1"),
                 UI_Url = new Uri("http://reg-sql.ilabber.com/notebook"),
@@ -75,7 +75,7 @@ namespace StockholmDashboard.Data
             var n5 = new NotebookService
             {
                 ID = "regora",
-                Name = "Reg ORA",
+                Name = "Notebook Reg ORA",
                 Description = "",
                 API_Url = new Uri("http://reg-ora-ilabber.accelrys.net/api/v1"),
                 UI_Url = new Uri("http://reg-ora-ilabber.accelrys.net/notebook"),
@@ -88,10 +88,23 @@ namespace StockholmDashboard.Data
             var n6 = new NotebookService
             {
                 ID = "regcloud",
-                Name = "Reg Cloud",
+                Name = "Notebook Reg Cloud",
                 Description = "",
                 API_Url = new Uri("https://reg-cloud-1.accelrys.net/api/v1"),
                 UI_Url = new Uri("https://reg-cloud-1.accelrys.net"),
+                Username = "superuser",
+                Password = "superuser",
+                TicketRequestID_UI = 1477,
+                TicketRequestID_API = 1474
+            };
+
+            var n7 = new NotebookService
+            {
+                ID = "perfectlab_dev",
+                Name = "Perfect Lab (Integration Dev)",
+                Description = "",
+                API_Url = new Uri("https://nb.perfectlab-dev.accelrys.net/api/v1"),
+                UI_Url = new Uri("https://nb.perfectlab-dev.accelrys.net"),
                 Username = "superuser",
                 Password = "superuser",
                 TicketRequestID_UI = 1477,
@@ -115,6 +128,10 @@ namespace StockholmDashboard.Data
 
             TestDataStore.FillTestSummaries(ref n6);
             _services.Add(n6);
+
+            n7.APITestSummaries = new List<TestSummary>();
+            n7.UITestSummaries = new List<TestSummary>();
+            _services.Add(n7);
 
         }
 

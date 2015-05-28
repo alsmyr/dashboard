@@ -69,37 +69,6 @@ namespace StockholmDashboard.Data
                 
             }
 
-            //if ((DateTime.UtcNow - t.Executed).TotalHours < 24 && t.TicketRequestID == id && !SlackTickets.Contains(t.TicketID))
-            //{
-            //    // Post to Slack
-            //    if (t.NotPassed > 0)
-            //    {
-            //        SlackStore.PostMessage(s.Name + " API Tests failed! <" + t.DetailsUri + "|Click here> for details!", null, null, ":warning:");
-            //    }
-            //    else
-            //    {
-            //        SlackStore.PostMessage(s.Name + " API Tests OK! <" + t.DetailsUri + "|Click here> for details!", null, null, ":white_check_mark:");
-            //    }
-
-            //    SlackTickets.Add(t.TicketID);
-
-            //}
-
-            //if ((DateTime.UtcNow - t.Executed).TotalHours < 24 && t.TicketRequestID == id2 && !SlackTickets.Contains(t.TicketID))
-            //{
-            //    // Post to Slack
-            //    if (t.NotPassed > 0)
-            //    {
-            //        SlackStore.PostMessage(s.Name + " UI Tests failed! <" + t.DetailsUri + "|Click here> for details!", null, null, ":warning:");
-            //    }
-            //    else
-            //    {
-            //        SlackStore.PostMessage(s.Name + " UI Tests OK! <" + t.DetailsUri + "|Click here> for details!", null, null, ":white_check_mark:");
-            //    }
-
-            //    SlackTickets.Add(t.TicketID);
-            //}
-
             s.APITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id);
             s.UITestSummaries = _testSummaries.FindAll(m => m.TicketRequestID == id2);
 
