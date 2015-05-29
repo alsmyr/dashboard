@@ -107,8 +107,8 @@ namespace StockholmDashboard.Data
                 UI_Url = new Uri("https://nb.perfectlab-dev.accelrys.net"),
                 Username = "superuser",
                 Password = "superuser",
-                TicketRequestID_UI = 1477,
-                TicketRequestID_API = 1474
+                TicketRequestID_UI = 2215,
+                TicketRequestID_API = 2214 
             };
 
             TestDataStore.FillTestSummaries(ref n1);
@@ -129,8 +129,7 @@ namespace StockholmDashboard.Data
             TestDataStore.FillTestSummaries(ref n6);
             _services.Add(n6);
 
-            n7.APITestSummaries = new List<TestSummary>();
-            n7.UITestSummaries = new List<TestSummary>();
+            TestDataStore.FillTestSummaries(ref n7);
             _services.Add(n7);
 
         }
