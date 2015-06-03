@@ -15,7 +15,7 @@ namespace StockholmDashboard.Data
 {
     public class TestDataStore
     {
-        private static SqlConnection _conn { get; set; }
+        
         private static Cache Cache { get; set; }
         private static HashSet<int> SlackTickets { get; set; }
         public const string CacheKey = "_testSummaries";
@@ -23,8 +23,7 @@ namespace StockholmDashboard.Data
         static TestDataStore()
         {
             
-            //_conn = new SqlConnection("Data Source=auto-test-data;Initial Catalog=TestAutomation;Persist Security Info=True;User ID=sa;Password=Kr0ken!;Pooling=False");
-            //_conn.Open();
+            
 
             Cache = new Cache();
             
@@ -43,10 +42,11 @@ namespace StockholmDashboard.Data
             {
                 _testSummaries = new List<TestSummary>();
 
+                SqlConnection _conn = null;
                 using (
                     _conn =
                         new SqlConnection(
-                            "Data Source=auto-test-data;Initial Catalog=TestAutomation;Persist Security Info=True;User ID=sa;Password=Kr0ken!;Pooling=False")
+                            "Data Source=auto-test-data;Initial Catalog=TestAutomation;Persist Security Info=True;User ID=sa;Password=Kr0ken!;Pooling=True")
                     )
                 {
                     
